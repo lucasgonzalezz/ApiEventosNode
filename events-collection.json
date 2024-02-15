@@ -1,0 +1,160 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "events-collection",
+    "dateExported": "2024-02-12T11:06:09.419Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "0152d04c-5f56-4733-83f6-88545021c786",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "admin-new-event",
+            "url": "http://localhost:3000/admin/add-event",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-12T09:23:44.042Z",
+            "modified": "2024-02-12T11:03:30.498Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"globos5\",\n  \"imageUrl\": \"\",\n  \"price\": 2,\n  \"description\": \"Esto es una megaparty de globos\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "00c70b69-65a0-4167-a4c8-d362e727a14f",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "admin-edit-event ",
+            "url": "http://localhost:3000/admin/edit-event",
+            "method": "PUT",
+            "sortNum": 25000,
+            "created": "2024-02-12T09:32:48.602Z",
+            "modified": "2024-02-12T11:03:47.147Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"globos5 editados\",\n  \"imageUrl\": \"\",\n  \"description\": \"Esto es una megaparty de globos\",\n  \"price\": 5,\n  \"_id\": \"65c9fb023934e3c0c8419c46\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab452a75-d537-4193-9973-dcff509bd3a6",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "admin-get-events",
+            "url": "http://localhost:3000/admin/events",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-12T09:32:09.900Z",
+            "modified": "2024-02-12T09:32:24.501Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "78b05f52-011f-4f30-8c71-0a1323db3106",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "admin-delete-event",
+            "url": "http://localhost:3000/admin/delete-event",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-12T10:31:41.767Z",
+            "modified": "2024-02-12T11:03:58.278Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"_id\":\"65c9fb023934e3c0c8419c46\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b3141769-8949-4ba5-86d0-29691e48b3e4",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "admin-get-orders ",
+            "url": "http://localhost:3000/admin/orders",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2024-02-12T10:56:27.205Z",
+            "modified": "2024-02-12T11:01:46.446Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5b170ee7-35b2-44fa-a35c-be608d36b2fb",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "user-get-events",
+            "url": "http://localhost:3000/events",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-12T10:37:17.682Z",
+            "modified": "2024-02-12T10:38:44.752Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "68c13a2b-7071-4cd8-a4fa-ef09434862d3",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "user-add-events",
+            "url": "http://localhost:3000/cart-delete-item",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-12T10:40:24.454Z",
+            "modified": "2024-02-12T10:49:52.370Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n    \"eventId\":\"65c9f32a50e761629926105d\"\n  \n  \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a112c24d-5c1f-40fd-924b-eb938e2b0a7b",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "user-add-to-cart",
+            "url": "http://localhost:3000/add-to-cart",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-02-12T10:54:17.494Z",
+            "modified": "2024-02-12T11:04:35.137Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"eventId\": \"65c9f32a50e761629926105d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6abff9d6-14aa-4f4f-b5e7-2ed968256ee0",
+            "colId": "70fdf80c-ed0c-4eb8-857f-03d395aa1f08",
+            "containerId": "",
+            "name": "user-get-order",
+            "url": "http://localhost:3000/checkout",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-02-12T10:39:18.989Z",
+            "modified": "2024-02-12T10:53:02.122Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
