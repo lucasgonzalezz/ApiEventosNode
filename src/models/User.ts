@@ -1,30 +1,32 @@
+// Importar ObjectId desde MongoDB, la colección de la base de datos y modelos relacionados
 import { ObjectId } from "mongodb";
 import { collections } from "../services/databaseService.js";
-import { title } from "node:process";
 import { Order, OrderItem } from "./Order.js";
 import { Event } from "./Event.js";
 
-interface address {
+// Definir la interfaz para la dirección
+interface Address {
     calle: string,
     telf: string,
     CP: string
 }
 
+// Definir la interfaz para un elemento del carrito
 export interface CartItem {
     pid: ObjectId,
     qty: number
-
 }
 
+// Clase que representa un usuario
 export class User {
-    public _id?: ObjectId
+    public _id?: ObjectId;
     public cart: CartItem[] = [];
 
     constructor(
         public DNI: string,
         public name: string,
         public mail: string,
-        public contacto: address,
+        public contacto: Address,
         cart?: CartItem[],
         id?: string
     ) {
@@ -32,6 +34,7 @@ export class User {
         cart ? this.cart = cart : this.cart = [];
     }
 
+    // Método para guardar un usuario en la base de datos
     async save() {
         const result1 = await collections.users?.findOne({ DNI: this.DNI });
         if (result1) {
@@ -42,14 +45,17 @@ export class User {
         const result = await collections.users?.insertOne(this);
         console.log(result);
         result
-            ? console.log(`Id del user creado ${result.insertedId}`)
+            ? console.log(`Id del usuario creado: ${result.insertedId}`)
             : console.log("No se ha podido crear el usuario");
         return this;
     }
 
+    // Método estático para obtener un usuario por su ID
     static async fetchById(id: string) {
         return await collections.users?.findOne({ _id: new ObjectId(id) });
     }
+
+    // Método para agregar un evento al carrito del usuario
     async addToCart(id: string) {
         const index = this.cart.findIndex(c => c.pid.toHexString() === id);
         if (index >= 0) {
@@ -61,6 +67,7 @@ export class User {
         return await collections.users?.updateOne({ _id: this._id }, { $set: { cart: this.cart } });
     }
 
+    // Método para obtener el contenido del carrito del usuario
     async getCart() {
         const eventsIds = this.cart.map(ci => ci.pid);
         const events = await collections.events?.find({ _id: { $in: eventsIds } }).toArray();
@@ -76,6 +83,7 @@ export class User {
         });
     }
 
+    // Método para eliminar un elemento del carrito del usuario
     async deleteCartItem(id: string) {
         const index = this.cart.findIndex(c => c.pid.toHexString() === id);
         if (index >= 0) {
@@ -84,6 +92,7 @@ export class User {
         }
     }
 
+    // Método para agregar una orden basada en el contenido del carrito
     async addOrder() {
         if (this.cart.length > 0 && this._id) {
             const eventsId = this.cart.map(ci => ci.pid); 
@@ -110,6 +119,7 @@ export class User {
         }
     }
 
+    // Método para obtener todas las órdenes del usuario
     async getOrders() {
         return await collections.orders?.find({ 'user._id': this._id }).toArray();
     }
